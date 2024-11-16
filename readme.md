@@ -13,7 +13,8 @@ This tool supports one-click import of assets such as backgrounds, costumes, sou
 2.  Execute the script using:
 
     ```bash
-    python scratch2-asset-process.py```
+    python scratch2-asset-process.py
+    ```
 
 3.  Drag files into the window to add assets automatically. The asset name defaults to the file name.\
     Dragging a folder will automatically process all files within it.
@@ -46,16 +47,16 @@ This tool is used to crawl the asset libraries from the official Scratch 2 and S
     Simply execute:
 
     ```bash
-
-    python scratch2-asset-crawl.py```
+    python scratch2-asset-crawl.py
+    ```
 
 -   **To Crawl Scratch 3 Asset Library**:\
     Due to slow download speeds from international resources, the crawler uses a SOCKS proxy. Replace the proxy configuration with your own.\
     Place the latest index file into the `scratch3/json_index` folder and run:
 
     ```bash 
-
-    python scratch3-asset-crawl.py```
+    python scratch3-asset-crawl.py
+    ```
 
 -   **Upload to Cloud Storage**:\
     Using Qiniu Cloud's QSunSync client as an example:
