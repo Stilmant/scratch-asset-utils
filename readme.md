@@ -1,68 +1,66 @@
-### 素材处理工具使用说明
+### Instructions for Using the Asset Processing Tool
 
-支持背景、造型、声音、角色等素材的一键导入，并自动生成缩略图、更新索引。
+This tool supports one-click import of assets such as backgrounds, costumes, sounds, and sprites. It automatically generates thumbnails and updates the index.
 
-#### 环境说明
+#### Environment Requirements
 
-- 运行环境 Python 3.x
+-   **Runtime Environment**: Python 3.x
+-   **Dependencies**: Pillow, shutil, pysocks
 
-- 依赖Pillow，shutil，pysocks
+#### How to Use
 
+1.  By default, the tool uses the built-in asset library. Alternatively, configure the relevant path parameters.
+2.  Execute the script using:
 
+    ```bash
+    python scratch2-asset-process.py```
 
-#### 使用说明
+3.  Drag files into the window to add assets automatically. The asset name defaults to the file name.\
+    Dragging a folder will automatically process all files within it.
 
-1. 默认使用本项目自带的素材库，或者配置相关路径参数
+#### Asset Format Requirements
 
-2. 执行python scratch2-asset-process.py
+-   **Background Assets**:\
+    JPG format, recommended size 480x320
+-   **Costume Assets**:\
+    PNG or SVG format
+-   **Sound Assets**:\
+    WAV format
+-   **Sprite Assets**:\
+    SPRITE2 format
 
-3. 将文件拖入窗口，自动添加本素材，素材名默认为文件名
+* * * * *
 
-   将文件夹拖入，则自动处理所有文件
+### Instructions for Using the Official Asset Library Crawler
 
-#### 素材格式要求
+This tool is used to crawl the asset libraries from the official Scratch 2 and Scratch 3 CDNs.
 
-- 背景素材
+#### Environment Requirements
 
-  jpg格式，建议尺寸480x320
+-   **Runtime Environment**: Python 3.x
+-   **Dependencies**: requests
 
-- 造型素材
+#### How to Use
 
-  png或svg格式
+-   **To Crawl Scratch 2 Asset Library**:\
+    Simply execute:
 
-- 声音素材
+    ```bash
 
-  wav格式
+    python scratch2-asset-crawl.py```
 
-- 角色素材
+-   **To Crawl Scratch 3 Asset Library**:\
+    Due to slow download speeds from international resources, the crawler uses a SOCKS proxy. Replace the proxy configuration with your own.\
+    Place the latest index file into the `scratch3/json_index` folder and run:
 
-  sprite2格式
+    ```bash 
 
-  
+    python scratch3-asset-crawl.py```
 
+-   **Upload to Cloud Storage**:\
+    Using Qiniu Cloud's QSunSync client as an example:
 
-### 官网素材库爬虫使用说明
-
-用于爬取scratch2和scratch3官方CDN上的素材库
-
-#### 环境说明
-
-- 运行环境 Python 3.x
-
-
-- 依赖requests
-
-#### 使用说明
-
-- 爬取scratch2素材库
-
-直接执行python scratch2-asset-crawl.py 即可
-
-- 爬取scratch3素材库
-
-因为国外资源下载太慢，爬虫使用了socks代理，需要替换成自己的代理
-将最新的索引文件放到scratch3/json_index文件夹中，运行scratch3-asset-crawl.py 即可
-
-- 上传至云存储
-
-以七牛云QSunSync客户端为例，配置AK和SK，选择scratch3文件夹，选择目标空间，点击开始同步即可
+    -   Configure the Access Key (AK) and Secret Key (SK).
+    -   Select the `scratch3` folder.
+    -   Choose the target storage space.
+    -   Click "Start Sync" to begin the upload.
